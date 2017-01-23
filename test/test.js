@@ -1,5 +1,6 @@
 var assert = require("assert"); // node.js core module
 var C = require('../cash.js');  // our module
+var expect = require('chai').expect
 
 describe('Cash Register', function(){
   describe('Module C', function(){
@@ -45,4 +46,21 @@ describe('Donate', function() {
   });
 
 
+  describe('net donation', function() {
+    it('donate(100).netDonation < 50 if isCostHigh', function () {
+      if (donation.isCostHigh) {
+        expect(donation.netDonation < 50).to.be.ok;
+      } else {
+        assert(true);
+      }
+    });
+
+    it('donate(100).netDonation > 50 if !isCostHigh', function () {
+      if (!donation.isCostHigh) {
+        expect(donation.netDonation > 50).to.be.ok;
+      } else {
+        assert(true);
+      }
+    });
+  });
 })
