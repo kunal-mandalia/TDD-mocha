@@ -33,3 +33,16 @@ describe('Array', function(){
 		});
   });
 });
+
+describe('Donate', function() {
+  it('should be a function', function() {
+    assert.equal(typeof C.donate, 'function');
+  });
+
+  var donation = C.donate(100);  
+  it('should return an object', function() {
+    assert.equal(typeof donation, 'object');
+  });
+
+
+})

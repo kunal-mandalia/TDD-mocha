@@ -28,4 +28,14 @@ C.getChange = function (totalPayable, cashPaid) {
     }
     return change;
 }
+
+C.donate = function (donation) {
+    var adminPercent = Math.random();
+    var directSupportPercent = 1 - adminPercent;
+    if (adminPercent > 0.5) {
+        return { isCostHigh: true, netDonation: donation * directSupportPercent };
+    } else {
+        return { isCostHigh: false, netDonation: donation * directSupportPercent };
+    }
+}
 module.exports = C;            // export the module with a single method
